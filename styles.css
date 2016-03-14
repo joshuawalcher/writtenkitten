@@ -1,0 +1,122 @@
+* {
+	margin:0;
+	padding:0;
+}
+body {  background: url(kittenbg.gif) repeat #6AAFDA }
+::-moz-selection {
+  background: #6AAFDA;
+  color: #fff;
+}
+::selection {
+  background: #6AAFDA;
+  color: #fff;
+}
+
+#main {
+  margin: 50px auto;
+  background-color: #fff;
+  max-width: 1000px;
+  padding: 1em 2em 2em 2em;
+  border: 1px solid #5896bc;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 5px 2px #5896bc;
+  -moz-box-shadow: 0px 0px 5px 2px #5896bc;
+  box-shadow: 0px 0px 5px 2px #5896bc;
+}
+
+#about {
+  margin: 50px auto;
+  background-color: #fff;
+  max-width: 1000px;
+  padding: 1em 2em 2em 2em;
+  border: 1px solid #5896bc;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 5px 2px #5896bc;
+  -moz-box-shadow: 0px 0px 5px 2px #5896bc;
+  box-shadow: 0px 0px 5px 2px #5896bc;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+  max-width: 100%;
+}
+textarea {
+  max-width: 580px;
+  height: 400px;
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+h1 {
+  font-size: 3em;
+  margin: 0;
+}
+h2 {
+  font-size: 1.7em;
+  margin: 0;
+}
+a, a:visited {
+  color: #5896bc;
+  text-decoration: none;
+  cursor: pointer;
+}
+a:hover {  color: #305c78 }
+a:focus {  outline: thin dotted; }
+a:hover, a:active {  outline: 0; }
+p {  font-size: .9em }
+h1, #controls, h2, .hide {
+  font-family: 'Indie Flower', cursive;
+  font-weight: normal;
+}
+.hide {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.warning {
+  background-color: #f7f8c3;
+  border: 1px solid #f7ce6d;
+  padding: 1em 1em 0 1em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.warning h2 {  font-size: 2em }
+.warning a {
+  font-size: 1.5em;
+  color: #000;
+  cursor: pointer;
+}
+.hidelink {
+  text-align: right;
+  padding-right: 1em;
+}
+#displayWords, #about, #kittenCredit, .warning {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 200;
+}
+.meta {  padding-left: 2em }
+#kittenFrame {
+  float: right;
+  height: 400px;
+  max-width: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#nextKitten {  display: none }
+#kittenCredit {
+  color: #999;
+  width: 100%;
+  font-size: .8em;
+  margin-top: 420px;
+  text-align: right;
+}
+.centered {
+	max-width:1000px;
+	margin: 0 auto;
+}

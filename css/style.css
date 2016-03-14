@@ -1,0 +1,431 @@
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, em, img, strong,
+ol, ul, li,
+table, tr, th, td,
+form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  background: transparent;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input, button{
+  overflow: visible;
+}
+html {
+  overflow: auto;
+}
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  font: normal 12px 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  line-height: 1.2;
+  color: #1e2022;
+  text-align: center;
+  background: #fcfcfc;
+}
+p {
+  padding: 0 0 10px;
+}
+ul {
+  padding: 0 0 0 16px;
+}
+li {
+  padding: 0 0 8px;
+}
+a {
+  text-decoration: none;
+  color: #005ace;
+}
+a:hover {
+  text-decoration: underline;
+  color: #39f;
+}
+.clear { display: inline-block; }
+.clear:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+* html .clear { height: 1%; }
+.clear { display: block; }
+.none,
+.hidden {
+  display: none;
+}
+.page {
+  position: relative;
+  width: 100%;
+  min-width: 750px;
+  min-height: 100%;
+}
+* html .page {
+  height: 100%;
+}
+.page .header {
+  border-bottom: 1px solid #0f0f14;
+  width: 100%;
+  height: 49px;
+  text-align: left;
+  background: #363b47 url('../img/common/top_bg.gif') 0 0 repeat-x;
+}
+.page .header .company-logo {
+  float: right;
+  display: block;
+  margin: 5px 10px 0 0;
+  width: 115px;
+  height: 38px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: transparent url('../img/common/def_parallels_logo.gif') 0 0 no-repeat;
+}
+.page .header .header-area {
+  height: 49px;
+}
+.page .header h1 {
+  float: left;
+  width: 156px;
+  height: 49px;
+  text-align: left;
+}
+.page .header h1 a {
+  display: block;
+  width: 210px;
+  height: 49px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: url('../img/common/def_plesk_logo.gif') no-repeat;
+}
+.page .header .header-text {
+  float: right;
+  font-size: 11px;
+}
+.page .header .header-text a {
+  float: left;
+  margin: 11px 13px 0 0;
+  color: #f1f1f1;
+  text-decoration: none;
+  font-size: 11px;
+}
+.page .header .header-text a.txt-banner {
+  margin-right: 10px;
+}
+.page .header .header-text a strong {
+  font-weight: normal;
+}
+.page .header .header-text a.top-copyright {
+  text-align: right;
+}
+.wrapper {
+  margin: 0 auto;
+  padding: 40px 0 80px;
+  width: 734px;
+  text-align: left;
+}
+.wrapper .container {
+  border: 1px solid #b8c1d0;
+  margin-bottom: 12px;
+  padding: 6px;
+  background: #fff;
+}
+.wrapper .content {
+  background: #fff url('../img/common/content_bg.gif') 0 0 repeat-y;
+}
+.wrapper .content .description {
+  padding: 0 15px 0 190px;
+  min-height: 229px;
+  font-size: 12px;
+  background: transparent url('../img/common/banner.jpg') 0 0 no-repeat;
+}
+* html .wrapper .content .description {
+  height: 229px;
+}
+.wrapper .content h2 {
+  margin: 0 0 10px;
+  padding: 10px 0 3px;
+  font-size: 18px;
+  font-weight: normal;
+  color: #039;
+}
+.wrapper .content .hr {
+  border-top: 1px solid #8b919f;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+.wrapper .promo,
+.wrapper .test-pages {
+  margin-bottom: 12px;
+}
+.promo .block-area,
+.test-pages .block-area {
+  border: 1px solid #b8c1d0;
+  background: #fff;
+}
+.wrapper .promo h3,
+.wrapper .test-pages h3 {
+  padding: 0 0 6px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #039;
+}
+.wrapper .test-pages p {
+  padding: 10px;
+}
+.wrapper .two-col .test-pages,
+.wrapper .two-col .promo {
+  float: left;
+  width: 362px;
+}
+.wrapper .two-col .promo {
+  margin-left: 10px;
+}
+.promo .promo-block {
+  margin: 10px 10px 0;
+}
+.promo .promo-block a.box {
+  float: left;
+  margin: 0 0 0 -105px;
+}
+.promo .promo-block div {
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 10px;
+  padding: 0 0 10px 105px;
+}
+.promo .promo-block h4 {
+  font-size: 20px;
+  padding: 4px 0 8px;
+}
+.promo .promo-block h4 span {
+  display: block;
+  margin-bottom: -5px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.promo .promo-block h4 a {
+  text-decoration: none;
+  color: #1e2022;
+}
+.promo .promo-block a.more {
+  padding: 2px 0 3px 24px;
+  line-height: 19px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #616161;
+  background: transparent url('../img/common/arrow.gif') 0 0 no-repeat;
+}
+.promo .promo-block h4 a:hover,
+.promo .promo-block a.more:hover {
+  text-decoration: none;
+  color: #39f;
+}
+.promo ul {
+  margin: 0 10px 5px;
+  padding: 0 0 0 16px;
+}
+.promo ul li {
+  padding-bottom: 5px;
+}
+.page .footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid #9db6c5;
+  width: 100%;
+  min-width: 300px;
+  height: 69px;
+  background: #f1fbfe url('../img/common/footer_bg.gif') 0 0 repeat-x;
+}
+.page .footer-area {
+  height: 69px;
+  font-size: 11px;
+  text-align: left;
+  color: #000;
+  background: url('../img/common/footer_right_bg.png') 100% 0 no-repeat;
+}
+.page .footer a {
+  color: #06c;
+  text-decoration: none;
+}
+.page .footer a:hover {
+  color: #39f;
+  text-decoration: underline;
+}
+.page .footer .description {
+  margin: 0;
+  padding: 8px 10px 0;
+}
+.icons-area {
+  padding: 0 0 0 15px;
+}
+.icon {
+  display: -moz-inline-box;
+  display: inline-block;
+  overflow: visible;
+  border: 0;
+  margin: 0 5px 12px 0;
+  height: 32px;
+  font: normal 11px 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  vertical-align: top;
+  color: #000;
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+.icon:hover {
+  text-decoration: none;
+  color: #000;
+}
+.icon span {
+  display: block;
+  padding: 0 0 0 38px;
+  height: 32px;
+  width: 70px;
+  line-height: 32px;
+  cursor: pointer;
+}
+#asp { background-image: url('../img/glyph/btn_asp_bg.gif'); }
+#aspnet { background-image: url('../img/glyph/btn_aspdotnet_bg.gif'); }
+#coldfusion { background-image: url('../img/glyph/btn_coldfusion_bg.gif'); }
+#perl { background-image: url('../img/glyph/btn_perl_bg.gif'); }
+#php { background-image: url('../img/glyph/btn_php_bg.gif'); }
+#python { background-image: url('../img/glyph/btn_python_bg.gif'); }
+#ssi { background-image: url('../img/glyph/btn_ssi_bg.gif'); }
+#fcgi { background-image: url('../img/glyph/btn_fast_cgi_bg.gif'); }
+#miva { background-image: url('../img/glyph/btn_miva_bg.gif'); }
+.test {
+  width: 680px;
+}
+.test .pathbar {
+  color: #7b7b7b;
+}
+.test .pathbar a {
+  text-decoration: underline;
+  color: #7b7b7b;
+}
+.test .pathbar a:hover {
+  color: #39f;
+}
+.test h2 {
+  margin: 10px 0;
+  font-size: 17px;
+  font-weight: normal;
+}
+.test .tab-content {
+  border: 1px solid #8b919f;
+  padding: 10px;
+}
+fieldset {
+  border: 1px solid #b8c1d0;
+  margin: 0;
+  padding: 0 10px 10px;
+}
+legend {
+  margin: 0;
+  padding: 0 2px 5px;
+  vertical-align: middle;
+  font-weight: bold;
+  color: #002c61;
+}
+.form-fields {
+  padding-top: 6px;
+}
+.formFields {
+  margin: 5px 0;
+}
+.formFields,
+.formFields input,
+.formFields select,
+.formFields textarea {
+  font: normal 11px 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+.formFields td.name {
+  padding: 0 10px 10px 0;
+  width: 200px;
+  vertical-align: top;
+  font-weight: bold;
+}
+.buttonsContainer {
+  margin-top: 10px;
+  text-align: right;
+}
+.buttonsContainer .commonButton {
+  display: inline;
+  margin-left: 14px;
+}
+.buttonsContainer .commonButton span {
+  display: none;
+}
+.buttonsContainer .commonButton button {
+  border: 0;
+  width: 91px;
+  height: 21px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  font: normal 11px 'Segoe UI', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  background: transparent url('../img/glyph/btn_bg.gif') 0 0 no-repeat;
+}
+.commonButton button[disabled] {
+  color: #999;
+  background-image: url('../img/glyph/btn_bg-disabled.gif');
+}
+#bid-ok button  {
+  padding-left: 8px;
+  background-image: url('../img/glyph/btn_ok_bg.gif');
+}
+.commonButton button:hover {
+  background-position: 0 -21px;
+}
+.commonButton button[disabled]:hover {
+  background-position: 0 0;
+}
+.testRelults#testFailed {
+  border: 1px solid #ccc;
+  margin: 0 0 10px;
+  padding: 10px 10px 10px 32px;
+  background: #fde9e5 url('../img/icons/fail.gif') 10px 11px no-repeat;
+}
+.testRelults#testSuccessful {
+  border: 1px solid #ccc;
+  margin: 0 0 10px;
+  padding: 10px 32px;
+  background: #bff7b4 url('../img/icons/success.gif') 10px 11px no-repeat;
+}
+.testResult {
+  font-weight: bold;
+}
+.test-data {
+  text-align: left;
+}
+.test-data table {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  width: 100%;
+  color: #000;
+  background-color: white;
+}
+.test-data table th,
+.test-data table td {
+  padding: 4px 6px;
+}
+.test-data tr.subhead {
+  background-color: #ccc;
+}
+.test-data th.alt {
+  color: white;
+  background-color: black;
+}
+.test-data tr.alt {
+  background-color: #eee;
+}

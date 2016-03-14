@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Written? Kitten!</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" itemprop="description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
+<link rel="canonical" href="//writtenkitten.co"/>
+<meta property="og:title" content="Written? Kitten!"/>
+<meta property="og:url" content="http://www.writtenkitten.com/"/>
+<meta property="og:image" content="http://writtenkitten.co/images/logo.jpg"/>
+<meta property="og:site_name" content="Written? Kitten!"/>
+<meta property="og:description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="@josh_walcher"/>
+<meta name="twitter:domain" content="http://writtenkitten.co"/>
+<meta name="twitter:description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
+<meta itemprop="image" content="http://writtenkitten.co/images/logo.jpg"/>
+<link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<style type="text/css">
+	body {  background: url(kittenbg.gif) repeat #6AAFDA }
+	::-moz-selection {
+	  background: #6AAFDA;
+	  color: #fff;
+	}
+	::selection {
+	  background: #6AAFDA;
+	  color: #fff;
+	}
+	
+	#main {
+	  margin: 50px auto;
+	  background-color: #fff;
+	  width: 1000px;
+	  padding: 1em 2em 2em 2em;
+	  border: 1px solid #5896bc;
+	  -webkit-border-radius: 20px;
+	  -moz-border-radius: 20px;
+	  border-radius: 20px;
+	  -webkit-box-shadow: 0px 0px 5px 2px #5896bc;
+	  -moz-box-shadow: 0px 0px 5px 2px #5896bc;
+	  box-shadow: 0px 0px 5px 2px #5896bc;
+	}
+	
+	#about {
+	  margin: 50px auto;
+	  background-color: #fff;
+	  width: 1000px;
+	  padding: 1em 2em 2em 2em;
+	  border: 1px solid #5896bc;
+	  -webkit-border-radius: 20px;
+	  -moz-border-radius: 20px;
+	  border-radius: 20px;
+	  -webkit-box-shadow: 0px 0px 5px 2px #5896bc;
+	  -moz-box-shadow: 0px 0px 5px 2px #5896bc;
+	  box-shadow: 0px 0px 5px 2px #5896bc;
+	}
+	
+	img {
+	  border: 0;
+	  -ms-interpolation-mode: bicubic;
+	  vertical-align: middle;
+	  max-width: 100%;
+	}
+	textarea {
+	  width: 580px;
+	  height: 400px;
+	  overflow: auto;
+	  vertical-align: top;
+	  resize: vertical;
+	}
+	h1 {
+	  font-size: 3em;
+	  margin: 0;
+	}
+	h2 {
+	  font-size: 1.7em;
+	  margin: 0;
+	}
+	a, a:visited {
+	  color: #5896bc;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+	a:hover {  color: #305c78 }
+	a:focus {  outline: thin dotted; }
+	a:hover, a:active {  outline: 0; }
+	p {  font-size: .9em }
+	h1, #controls, h2, .hide {
+	  font-family: 'Indie Flower', cursive;
+	  font-weight: normal;
+	}
+	.hide {
+	  font-size: 1.2em;
+	  cursor: pointer;
+	}
+	.warning {
+	  background-color: #f7f8c3;
+	  border: 1px solid #f7ce6d;
+	  padding: 1em 1em 0 1em;
+	  -webkit-border-radius: 5px;
+	  -moz-border-radius: 5px;
+	  border-radius: 5px;
+	}
+	.warning h2 {  font-size: 2em }
+	.warning a {
+	  font-size: 1.5em;
+	  color: #000;
+	  cursor: pointer;
+	}
+	.hidelink {
+	  text-align: right;
+	  padding-right: 1em;
+	}
+	#displayWords, #about, #kittenCredit, .warning {
+	  font-family: "Helvetica Neue", sans-serif;
+	  font-weight: 200;
+	}
+	.meta {  padding-left: 2em }
+	#kittenFrame {
+	  float: right;
+	  height: 400px;
+	  width: 400px;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	}
+	#nextKitten {  display: none }
+	#kittenCredit {
+	  color: #999;
+	  width: 100%;
+	  font-size: .8em;
+	  margin-top: 420px;
+	  text-align: right;
+	}
+</style>
+
+<!--[if IE ]>
+	<style type="text/css">
+		textarea { width:500px }
+	</style>
+<![endif]-->
+
+<script>
+	var current_word_count = 0;
+	var words_for_reward = 100;
+	var kittens_earned = 0;
+	var kittens_shown = 0;
+	var warning_shown = false;
+	var search_for = 'kitten';
+	
+	var valid_licenses="4,5,7";
+	
+	/*
+	4 - Attribution License (http://creativecommons.org/licenses/by/2.0/)
+	5 - Attribution-ShareAlike License (http://creativecommons.org/licenses/by-sa/2.0/)
+	7 - No known copyright restrictions (http://flickr.com/commons/usage/)
+	*/
+	
+	var warning;
+	if (typeof localStorage == "undefined") {
+		warning = "#warning-no-ls";
+	} else {
+		warning = "#warning-ls";
+	}
+	
+	var next_kitten = {
+		img_url: '',
+		page_url: '',
+		alt: ''
+	};
+	
+	//Get license info
+	var license_url = "https://api.flickr.com/services/rest/?format=json&method=flickr.photos.licenses.getInfo&api_key=5dfc80756edad8d0566cf40f0909324e&jsoncallback=?";
+	var custom_shorts = {"No known copyright restrictions": "Flickr Commons"};
+	var license_list = [];
+	$.getJSON(license_url, function(data) {
+		if (data.stat == "ok") {
+			$.each(data.licenses.license,function(idx,el) {
+				licdata = {"name": el.name,"url": el.url};
+				//Assign short
+				if(shortcc = licdata.url.match(/creativecommons\.org\/licenses\/([^\/]+)\//)) {
+				licdata["shortname"] = 'CC-' + shortcc[1].toUpperCase();
+				} else if(custshort = custom_shorts[licdata.name]) {
+				licdata["shortname"] = custshort;
+				} else {
+				licdata["shortname"] = licdata.name;
+				}
+				
+				license_list[el.id] = licdata;
+			});
+	  	}
+	});
+	
+	function word_count(text, wc) {
+		if (typeof localStorage != "undefined") {
+			localStorage.text = text;
+		}
+	  	
+		if (current_word_count >= 10 && warning_shown == false) {
+			show_warning();
+	  	}
+	  	
+		text = text.replace(/^\s*|\s*$/g,''); //removes whitespace from front and end
+	  	text = text.replace(/\s+/g,' '); // collapse multiple consecutive spaces
+	  	var words = text.split(" ");
+	  	wc.value = words.length;
+	  	current_word_count = wc.value = words.length;
+	  	$("#displayWords").html(wc.value);
+	  	kittens_earned = current_word_count / words_for_reward;
+	  	if (kittens_earned >= ((kittens_shown*1)+1)) {
+			
+			if(current_word_count > 90 && current_word_count < 110){
+				set_search($('#search').val());
+				search_for = $('#search').val();
+				fetch_next_kitten();
+			}
+			
+			show_kitten();
+			
+	  	}
+	}
+	
+	function show_warning() {
+		$(warning).fadeIn("slow");
+	}
+	
+	function hide_warning(immediate) {
+		if (immediate == true) {
+			$(warning).hide();
+		} else {
+			$(warning).fadeOut("slow");
+		}
+		warning_shown = true;
+	}
+	
+	function show_kitten() {
+		hide_warning(true);
+		kittens_shown++;
+		$("#kittenFrame").css("background-image", "url(" + next_kitten.img_url + ")");
+		$("#kittenCredit").html("<a href='" + next_kitten.page_url + "'>" + next_kitten.alt + "</a>");
+		fetch_next_kitten();
+	}
+	
+	function fetch_next_kitten() {
+		if (getParameterByName("search")) {
+			// if they are using a URL param, take them very literally. They
+			// generally know what they're doing.
+			flickr_search_term = search_for;
+		} else {
+			// add "cute" to search if item is selected from dropdown. it just
+			// works better that way.
+			flickr_search_term = search_for + ",cute";
+		}
+	
+		var flickr_url = "https://api.flickr.com/services/rest/?format=json&sort=interestingness-desc&method=flickr.photos.search&license=" + valid_licenses + "&extras=owner_name,license&tags=" + flickr_search_term + "&tag_mode=all&api_key=5dfc80756edad8d0566cf40f0909324e&jsoncallback=?";
+	
+		$.getJSON(flickr_url, function(data) {
+			if (data.stat == "ok") {
+				var i = Math.ceil(Math.random() * data.photos.photo.length);
+				var photo = data.photos.photo[i];
+				var attrib = "";
+				if (license = license_list[photo.license]) {
+					if (license.url) {
+						attrib = " (<a href=\"" + license.url + "\">" + license.shortname + "</a>)";
+					} else {
+						attrib = " (" + license.shortname + ")";
+					}
+				}
+				next_kitten.img_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_z.jpg";
+				next_kitten.page_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
+				next_kitten.alt = photo.title + " by " + photo.ownername + attrib;
+				$("#nextKitten").attr("src", next_kitten.img_url);
+			}
+		});
+	}
+	
+	function set_reward(howmany) {
+		words_for_reward = howmany;
+		kittens_earned = current_word_count / howmany;
+		kittens_shown = parseInt(kittens_earned);
+	}
+	
+	function set_search(search) {
+		if (tmp = getParameterByName("search")) {
+			tmp.replace(/</g, "&lt;").replace(/>/g, "&gt;"); // sanitize
+			search_for = tmp;
+		} else {
+			search_for = search;
+		}
+		
+		set_title();
+	}
+	
+	function set_title() {
+		if (search_for != "kitten") {
+			$("#titleKitten").html("<strike>Kitten!</strike>");
+			$("#titleSearch").html("&nbsp;" + search_for + "!");
+		}
+	}
+	
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+		var regexS = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(regexS);
+		var results = regex.exec(window.location.href);
+		if (results == null) {
+			return "";
+		} else {
+			return decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+	}
+	
+	function restore_text() {
+		if (typeof localStorage != "undefined") { 
+			$("#writearea").attr("value", localStorage.text).keyup();
+		}
+	}
+	
+	function tabs(e) {
+		if(e.keyCode === 9) { // if tab
+			var el = e.target;
+	
+			// get caret position or selection
+			var start = el.selectionStart;
+			var end = el.selectionEnd;
+			
+			var value = el.value;
+			
+			// set text to: text before caret + tab + text after caret
+			el.valuse = value.substring(0, start
+					  + "\t"
+					  + value.substring(end));
+			
+			// reset caret position
+			el.selectionStart = el.selectionEnd = start + 1;
+			
+			// keep focus
+			e.preventDefault();
+		}
+	}
+	
+	function initPage() {
+		set_search($('#search').val());
+		set_title();
+		restore_text();
+	}
+</script>
+</head>
+<body>
+<div id="main">
+<a name="top"></a>
+<h1>Written? <span id="titleKitten">Kitten!</span><span id="titleSearch"></span></h1>
+<div id="kittenFrame">
+  <div id="warning-no-ls" class="warning" style="display:none">
+    <h2>Warning!</h2>
+    <p>We don&apos;t save your work for you! You&apos;ll need to regularly copy
+        and paste your text into a word processor or other application to save it permanently.</p>
+    <p>If you want your work saved even if you close your browser,
+    upgrade to a recent version of <a href="https://www.google.com/chrome/">Chrome</a>,
+      <a href="http://www.mozilla.org/firefox/">Firefox</a>, <a href="http://www.apple.com/safari/">Safari</a>
+      or <a href="http://www.opera.com/">Opera</a>.</p>
+    <p class="hidelink"><a href="#" class="hide" onClick="hide_warning()">OK, got it!</a></p>
+  </div>
+  <div id="warning-ls" class="warning" style="display:none">
+    <h2>Hey!</h2>
+    <p>Looks like your browser supports local storage.  That's great!
+        Your writing will be saved even if you close this page.</p>
+    <p>We can't take responsibility for things going wrong, though, so you might want to
+    copy and paste your work to an external document every so often, just in case.</p>
+    <p class="hidelink"><a href="#" class="hide" onClick="hide_warning()">OK, got it!</a></p>
+  </div>
+  <div id="kittenCredit"></div>
+</div>
+
+<form>
+  <input type="hidden" name="hidden_count" value="" disabled  />
+  <textarea id="writearea" cols="80" rows="30" onKeyDown= "tabs(event);" onKeyUp="word_count(this.value, hidden_count);"></textarea>
+</form>
+<form id="controls">
+  <span class="meta">
+    Fresh
+    <select id="search" onChange="set_search(this.value)">
+    <option value="kitten">kitten</option>
+    <option value="puppy">puppy</option>
+    <option value="bunny">bunny</option>
+    </select>
+    every
+    <select id="howmany" onChange="set_reward(this.value)">
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="500">500</option>
+    <option value="1000">1000</option>
+    </select> words
+  </span>
+  <span class="meta">
+  Current word count: <span id="displayWords">0</span>
+  </span>
+</form>
+</div> <!-- main -->
+
+<div id="about">
+  <h2>About</h2>
+  <p>
+  Written Kitten was created by <a href="http://twitter.com/Skud"
+  rel="author">Skud</a>, <a href="http://twitter.com/aquaprofundanet"
+  rel="author">Emily</a> and <a
+  href="https://github.com/Skud/writtenkitten/blob/master/CONTRIBUTORS.md">contributors</a> and is now managed by <a href="http://twitter.com/josh_walcher">Josh</a> and hosted by <a href="http://www.bigboardroom.com/services/hosting/">BigBoardroom</a>.
+  </p>
+  <p>
+  Images are randomly selected from Flickr&apos;s &ldquo;most
+  interesting&rdquo; photos tagged with the search term of your
+  choice.  You can specify your own search term by editing the URL in
+  your browser's location bar <a
+  href="http://writtenkitten.co/?search=dinosaur">like this</a>.
+  </p>
+  <p>
+  Written? Kitten! is <a
+  href="http://github.com/Skud/writtenkitten">open source</a> and we're
+  happy to accept improvements, bugfixes, or suggestions.
+  <p>
+  Enjoy!
+  </p>
+  <img src="" id="nextKitten"/>
+</div> <!-- about -->
+<script language="javascript">
+	initPage();
+	fetch_next_kitten();
+</script>
+<!--[if lt IE 7 ]>
+  <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+  <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+<![endif]-->
+</body>
+</html>
