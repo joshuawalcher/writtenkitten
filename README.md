@@ -4,7 +4,7 @@ This is the source code for http://writtenkitten.co/, provided for the interest 
 
 The website and the code are provided "as is". Current plans for the next version are:
 
-1) Add the optional ability to have multiple tabs (multiple stories)
+1) Add the optional ability to have multiple tabs (multiple stories).
 
 2) Add an optional simple login system a' la Reddit that allows the saving of stories to a database.
 
