@@ -29,5 +29,3 @@ xdescribe("Page load", function(){
        xit("Retrieves writing from local storage");   
    });
 });
-
-xdescribe("")
