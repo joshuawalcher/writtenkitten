@@ -1,4 +1,3 @@
-ABOUT
 This is the source code for http://writtenkitten.co/, provided for the interest of anyone who'd like to know how it works, or adapt it for their own use.
 
 The website and the code are provided "as is". Current plans for the next version are:
@@ -12,6 +11,7 @@ If you want to send me something awesome that you've built to add in I will cons
 -- Josh
 
 LICENSE
+
 Copyright (c) 2016 Joshua Walcher All rights reserved.
 Original web app built in 2011 by Alex "Skud" Bayley and Emily Turner.
 
