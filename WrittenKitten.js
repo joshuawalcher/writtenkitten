@@ -4,6 +4,7 @@
 	var kittens_shown = 0;
 	var warning_shown = false;
 	var search_for = 'kitten';
+	var flickr_search_term = "kitten,cute"
 	
 	var valid_licenses="4,5,7";
 	
@@ -67,8 +68,10 @@
 	  	if (kittens_earned >= ((kittens_shown*1)+1)) {
 			
 			if(current_word_count > 90 && current_word_count < 110){
-				set_search($('#search').val());
-				search_for = $('#search').val();
+				if($('#search').val() != search_for){
+					search_for = $('#search').val();
+					flickr_search_term = $('#search').val(); + ',cute';
+				}
 				fetch_next_kitten();
 			}
 			
@@ -102,11 +105,12 @@
 		if (getParameterByName("search")) {
 			// if they are using a URL param, take them very literally. They
 			// generally know what they're doing.
-			flickr_search_term = search_for;
+			search_for = getParameterByName("search");
+			flickr_search_term = search_for + ',cute';
 		} else {
 			// add "cute" to search if item is selected from dropdown. it just
 			// works better that way.
-			flickr_search_term = search_for + ",cute";
+			flickr_search_term = search_for;
 		}
 	
 		var flickr_url = "https://api.flickr.com/services/rest/?format=json&sort=interestingness-desc&method=flickr.photos.search&license=" + valid_licenses + "&extras=owner_name,license&tags=" + flickr_search_term + "&tag_mode=all&api_key=5dfc80756edad8d0566cf40f0909324e&jsoncallback=?";
@@ -137,12 +141,13 @@
 		kittens_shown = parseInt(kittens_earned);
 	}
 	
-	function set_search(search) {
+	function set_search(searchTerm) {
 		if (tmp = getParameterByName("search")) {
 			tmp.replace(/</g, "&lt;").replace(/>/g, "&gt;"); // sanitize
 			search_for = tmp;
+			flickr_search_term = tmp + ',cute';
 		} else {
-			search_for = search;
+			search_for = searchTerm + ',cute';
 		}
 		
 		set_title();
