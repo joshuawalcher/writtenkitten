@@ -154,9 +154,9 @@
 	}
 	
 	function set_title() {
-		if (search_for != "kitten") {
+		if (search_for != "kitten,cute") {
 			$("#titleKitten").html("<strike>Kitten!</strike>");
-			$("#titleSearch").html("&nbsp;" + search_for + "!");
+			$("#titleSearch").html("&nbsp;" + search_for.replace(',cute','') + "!");
 		}
 	}
 	
