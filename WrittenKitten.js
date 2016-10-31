@@ -24,7 +24,9 @@
 	var next_kitten = {
 		img_url: '',
 		page_url: '',
-		alt: ''
+		alt: '',
+		sharefb: '',
+		sharetwitter: ''
 	};
 	
 	//Get license info
@@ -97,7 +99,7 @@
 		hide_warning(true);
 		kittens_shown++;
 		$("#kittenFrame").css("background-image", "url(" + next_kitten.img_url + ")");
-		$("#kittenCredit").html("<a href='" + next_kitten.page_url + "'>" + next_kitten.alt + "</a>");
+		$("#kittenCredit").html("<a href='" + next_kitten.page_url + "'>" + next_kitten.alt + "</a><br><a href='" + sharefb + "'>Share on Facebook</a><br><a href='" + sharetwitter + "'>Share on Twitter</a>");
 		fetch_next_kitten();
 	}
 	
@@ -130,6 +132,8 @@
 				next_kitten.img_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_z.jpg";
 				next_kitten.page_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 				next_kitten.alt = photo.title + " by " + photo.ownername + attrib;
+				sharefb = 'https://www.facebook.com/sharer.php?u=' + next_kitten.page_url;
+			        sharetwitter = 'https://twitter.com/intent/tweet?url=' + next_kitten.page_url + '&text=Check out the cute ' + search_for ' I found on writtenkitten.co!';
 				$("#nextKitten").attr("src", next_kitten.img_url);
 			}
 		});
