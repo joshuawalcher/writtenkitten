@@ -19,6 +19,7 @@ If you want to send me something awesome that you've built to add in I will cons
 # LICENSE
 
 Copyright (c) 2011 Alex "Skud" Bayley and Emily Turner, All rights reserved. (Original App)
+
 Copyright (c) 2016 Joshua Walcher, All rights reserved. (Developer of updates and bug fixes since 2016)
 
 Redistribution and use in source and binary forms, with or without
