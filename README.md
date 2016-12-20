@@ -10,7 +10,7 @@ The website and the code are provided "as is". Current plans for the next versio
 
 3) Design a Written Kitten t-shirt and link to it.
 
-4) Make the app "more" responsive so that it is confirmed that it looks good on tablets. I doubt very many people are typing away on their phones, but iPads and Kindles have keyboard attachments now.
+4) Make the app "more" responsive so that it is confirmed that it looks good on tablets. I doubt very many people are typing away on their phones, but iPads and Kindles have keyboard attachments now. (Note: this is done)
 
 If you want to send me something awesome that you've built to add in I will consider it. Simplicity is the important thing. This web app is popular because it's easy to understand.
 
@@ -19,7 +19,7 @@ If you want to send me something awesome that you've built to add in I will cons
 # LICENSE
 
 Copyright (c) 2011 Alex "Skud" Bayley and Emily Turner, All rights reserved. (Original App)
-Copyright (c) 2016 Joshua Walcher, All rights reserved. (Improvements)
+Copyright (c) 2016 Joshua Walcher, All rights reserved. (Developer of updates and bug fixes since 2016)
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
