@@ -1,40 +1,49 @@
-	body {  background: url(kittenbg.gif) repeat #6AAFDA }
-	::-moz-selection {
-	  background: #6AAFDA;
-	  color: #fff;
-	}
-	::selection {
-	  background: #6AAFDA;
-	  color: #fff;
-	}
+* {
+	margin:0px;
+	padding:0px;
+}
+
+body {
+	font-family:"Lora","Lato",Arial,sans-serif;
+	overflow-x:hidden;
+}
+
+h1:first-of-type{        width: 30vw;
+    display: block;
+    text-align: right;
+    opacity: 0.05;
+    font-size: 35px;
+    position: relative;
+    right: -67vw;}
+
+::-moz-selection {
+	background: #6AAFDA;
+	color: #fff;
+}
+
+::selection {
+	background: #6AAFDA;
+	color: #fff;
+}
 	
-	#main {
-	  margin: 50px auto;
-	  background-color: #fff;
-	  width: 1000px;
-	  padding: 1em 2em 2em 2em;
-	  border: 1px solid #5896bc;
-	  -webkit-border-radius: 20px;
-	  -moz-border-radius: 20px;
-	  border-radius: 20px;
-	  -webkit-box-shadow: 0px 0px 5px 2px #5896bc;
-	  -moz-box-shadow: 0px 0px 5px 2px #5896bc;
-	  box-shadow: 0px 0px 5px 2px #5896bc;
-	}
+#main {
+	background-color: #fff;
+	width: 100vw;
+}
 	
-	#about {
-	  margin: 50px auto;
-	  background-color: #fff;
-	  width: 1000px;
-	  padding: 1em 2em 2em 2em;
-	  border: 1px solid #5896bc;
-	  -webkit-border-radius: 20px;
-	  -moz-border-radius: 20px;
-	  border-radius: 20px;
-	  -webkit-box-shadow: 0px 0px 5px 2px #5896bc;
-	  -moz-box-shadow: 0px 0px 5px 2px #5896bc;
-	  box-shadow: 0px 0px 5px 2px #5896bc;
-	}
+#about {
+	margin: 50px auto;
+	background-color: #fff;
+	width: 1000px;
+	padding: 1em 2em 2em 2em;
+	border: 1px solid #5896bc;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	-webkit-box-shadow: 0px 0px 5px 2px #5896bc;
+	-moz-box-shadow: 0px 0px 5px 2px #5896bc;
+	box-shadow: 0px 0px 5px 2px #5896bc;
+}
 	
 	img {
 	  border: 0;
@@ -43,12 +52,17 @@
 	  max-width: 100%;
 	}
 	textarea {
-	  width: 580px;
-	  height: 400px;
-	  overflow: auto;
-	  vertical-align: top;
-	  resize: vertical;
+	    width: 93vw;
+		height: 93vh;
+		overflow: auto;
+		margin: 0 auto;
+		display: block;
+		resize: vertical;
+		font-size:22px;
+		font-family:'Lora','Lato',Arial,Verdana,sans-serif;
+		border:0px;
 	}
+	textarea:focus{border:0px;outline-width:0px;}
 	h1 {
 	  font-size: 3em;
 	  margin: 0;
@@ -93,22 +107,73 @@
 	  padding-right: 1em;
 	}
 	#displayWords, #about, #kittenCredit, .warning {
-	  font-family: "Helvetica Neue", sans-serif;
+	  font-family: "Lora", sans-serif;
 	  font-weight: 200;
 	}
 	.meta {  padding-left: 2em }
 	#kittenFrame {
-	  float: right;
-	  height: 400px;
-	  width: 400px;
-	  background-position: center;
+	  right:20px;
+	  top:20px;
+	  z-index:20;
+	  background-size: cover;
 	  background-repeat: no-repeat;
+	  position:absolute;
+	  display:none;
+	  height: 160px;
+	  width: 20vw;
+	  border-radius:0px 0px 12px 12px;
 	}
+
 	#nextKitten {  display: none }
 	#kittenCredit {
 	  color: #999;
-	  width: 100%;
+	  width: 93%;
 	  font-size: .8em;
-	  margin-top: 407px;
-	  text-align: right;
+	  margin-top: 160px;
+	  text-align: left;
+	  background:white;
+	  padding:5px;
 	}
+.nicEdit-panelContain {width: 100vw!important;
+    margin-top: -50px;height:42px;}
+.nicEdit-panel {width:250px;margin:10px auto!important;}
+.nicEdit-main, #main > form:nth-child(4) > div:nth-child(3) {
+   	width: 100vw !important;
+	height: 85vh !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
+	margin: 0 auto !important;
+	display: block !important;
+	resize: vertical !important;
+	font-size:22px !important;
+	font-family:'Lora','Lato',Arial,Verdana,sans-serif !important;
+	border:0px !important;
+}
+.nicEdit-main {padding:12px !important;width:97vw !important;}
+
+#about {display:none;}
+
+@media screen and (max-width:450px){
+	h1:first-of-type{
+	width: 100vw;
+    display: block;
+    text-align: center;
+    opacity: 0.05;
+    font-size: 35px;
+    position: relative;
+    right: 0vw;
+    clear: both;
+    margin-bottom: 50px;
+	}
+	#kittenFrame {
+    right: 10vw;
+    top: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: none;
+    height: 160px;
+    width: 80vw;
+    border-radius: 0px 0px 12px 12px;
+    z-index: 20;}
+}
