@@ -133,7 +133,7 @@
 				next_kitten.page_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 				next_kitten.alt = photo.title + " by " + photo.ownername + attrib;
 				sharefb = 'https://www.facebook.com/sharer.php?u=' + next_kitten.page_url;
-			        sharetwitter = 'https://twitter.com/intent/tweet?url=' + next_kitten.page_url + '&text=Check out the cute ' + search_for ' I found on writtenkitten.co!';
+			        sharetwitter = 'https://twitter.com/intent/tweet?url=' + next_kitten.page_url + '&text=Check out the cute ' + search_for + ' I found on writtenkitten.co!';
 				$("#nextKitten").attr("src", next_kitten.img_url);
 			}
 		});
