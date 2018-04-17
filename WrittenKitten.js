@@ -1,5 +1,5 @@
 	var current_word_count = 0;
-	var words_for_reward = 100;
+	var words_for_reward = 10;
 	var kittens_earned = 0;
 	var kittens_shown = 0;
 	var warning_shown = false;
