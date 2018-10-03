@@ -9,17 +9,18 @@
 <meta name="description" itemprop="description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
 <link rel="canonical" href="//writtenkitten.co"/>
 <meta property="og:title" content="Written? Kitten!"/>
-<meta property="og:url" content="http://www.writtenkitten.com/"/>
-<meta property="og:image" content="http://writtenkitten.co/images/logo.jpg"/>
+<meta property="og:url" content="//www.writtenkitten.com/"/>
+<meta property="og:image" content="//writtenkitten.co/images/logo.jpg"/>
 <meta property="og:site_name" content="Written? Kitten!"/>
 <meta property="og:description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="@josh_walcher"/>
-<meta name="twitter:domain" content="http://writtenkitten.co"/>
+<meta name="twitter:domain" content="//writtenkitten.co"/>
 <meta name="twitter:description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
-<meta itemprop="image" content="http://writtenkitten.co/images/logo.jpg"/>
-<link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<meta itemprop="image" content="//writtenkitten.co/images/logo.jpg"/>
+<link href="//fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css"/>
 
 <!--[if IE ]>
@@ -32,7 +33,7 @@
 <body>
 <div id="main">
 <a name="top"></a>
-<h1>Written? <span id="titleKitten">Kitten!</span><span id="titleSearch"></span></h1>
+<h1 onClick="showKittensAndAddHide()">Written? <span id="titleKitten">Kitten!</span><span id="titleSearch"></span></h1>
 <div id="kittenFrame">
   <div id="warning-no-ls" class="warning" style="display:none">
     <h2>Warning!</h2>
@@ -40,8 +41,8 @@
         and paste your text into a word processor or other application to save it permanently.</p>
     <p>If you want your work saved even if you close your browser,
     upgrade to a recent version of <a href="https://www.google.com/chrome/">Chrome</a>,
-      <a href="http://www.mozilla.org/firefox/">Firefox</a>, <a href="http://www.apple.com/safari/">Safari</a>
-      or <a href="http://www.opera.com/">Opera</a>.</p>
+      <a href="//www.mozilla.org/firefox/">Firefox</a>, <a href="//www.apple.com/safari/">Safari</a>
+      or <a href="//www.opera.com/">Opera</a>.</p>
     <p class="hidelink"><a href="#" class="hide" onClick="hide_warning()">OK, got it!</a></p>
   </div>
   <div id="warning-ls" class="warning" style="display:none">
@@ -56,8 +57,8 @@
 </div>
 
 <form>
-  <input type="hidden" name="hidden_count" value="" disabled  />
-  <textarea id="writearea" cols="80" rows="30" onKeyDown= "tabs(event);" onKeyUp="word_count(this.value, hidden_count);"></textarea>
+  <input type="hidden" id="hidden_count" name="hidden_count" value="" disabled  />
+  <textarea id="writearea" cols="80" rows="30" onKeyDown= "tabs(event);" class="content" onChange="word_count(this.value, hidden_count);"><p><strong>Welcome to the new Written? Kitten!</strong></p><br><p>Hey! You can now <strong><em>style</em></strong> your text and add lists!</p><br><p>Also, your images will now appear in the upper right-hand corner when you hit a word count goal and then fade away after 10 seconds. If you want to see your image again, click the Written? Kitten! logo in the top right. You can then click your image to make it fade out again.</p><br><p>Alright, looks like you're ready to go! Delete this message and start writing.</p><br><p>Sincerely,<br>Josh<br>@josh_walcher</p></textarea>
 </form>
 <form id="controls">
   <span class="meta">
@@ -84,21 +85,21 @@
 <div id="about">
   <h2>About</h2>
   <p>
-  Written Kitten was created by <a href="http://twitter.com/Skud"
-  rel="author">Skud</a>, <a href="http://twitter.com/aquaprofundanet"
+  Written Kitten was created by <a href="//twitter.com/Skud"
+  rel="author">Skud</a>, <a href="//twitter.com/aquaprofundanet"
   rel="author">Emily</a> and <a
-  href="https://github.com/joshuawalcher/writtenkitten/blob/master/CONTRIBUTORS.md">contributors</a> and is now managed by <a href="http://twitter.com/josh_walcher">Josh</a> and hosted by <a href="http://www.bigboardroom.com/services/hosting/">BigBoardroom</a>.
+  href="https://github.com/joshuawalcher/writtenkitten/blob/master/CONTRIBUTORS.md">contributors</a> and is now managed by <a href="//twitter.com/josh_walcher">Josh</a> and hosted by <a href="//www.bigboardroom.com/services/hosting/">BigBoardroom</a>.
   </p>
   <p>
   Images are randomly selected from Flickr&apos;s &ldquo;most
   interesting&rdquo; photos tagged with the search term of your
   choice.  You can specify your own search term by editing the URL in
   your browser's location bar <a
-  href="http://writtenkitten.co/?search=dinosaur">like this</a>.
+  href="//writtenkitten.co/?search=dinosaur">like this</a>.
   </p>
   <p>
   Written? Kitten! is <a
-  href="https://github.com/joshuawalcher/writtenkitten">open source</a> and we're
+  href="//github.com/Skud/writtenkitten">open source</a> and we're
   happy to accept improvements, bugfixes, or suggestions.
   <p>
   Enjoy!
@@ -110,6 +111,10 @@
 	$( document ).ready(function() {
 		fetch_next_kitten();
 	});
+</script>
+<script type="text/javascript" src="nic/nicEdit.js"></script>
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() {  new nicEditor().panelInstance('writearea'); $('.nicEdit-main').focus(); });
 </script>
 <!--[if lt IE 7 ]>
   <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
