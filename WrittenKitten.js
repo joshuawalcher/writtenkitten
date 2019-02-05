@@ -162,6 +162,10 @@
 			$("#titleKitten").html("<strike>Kitten!</strike>");
 			$("#titleSearch").html("&nbsp;" + search_for.replace(',cute','') + "!");
 		}
+		else {
+			$("#titleKitten").html("Kitten!");
+			$("#titleSearch").html("");
+		}
 	}
 	
 	function getParameterByName(name) {
