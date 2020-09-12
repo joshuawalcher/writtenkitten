@@ -1,3 +1,4 @@
+	* {margin:0;padding:0px;}
 	body {  background: url(kittenbg.gif) repeat #6AAFDA }
 	::-moz-selection {
 	  background: #6AAFDA;
@@ -112,3 +113,11 @@
 	  margin-top: 407px;
 	  text-align: right;
 	}
+	#header {
+		position: sticky;
+		top: 0px;
+		display: block;
+		width: 100vw;
+		height: 30px;
+		background-color: #6aafda;
+	  }
