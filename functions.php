@@ -288,7 +288,7 @@ function tryReset($email)
 
     		$insert = mysqli_query(
 					$conn,
-					"INSERT INTO hmrf_reset_sessions (username, token, reset_date)
+					"INSERT INTO user_reset_sessions (username, token, reset_date)
 					VALUES ('$email', '$resetToken', '$resetDate')"
     		);
 	        //now add that token to the end of a URL and send the user a notification email with a link to reset their password.
