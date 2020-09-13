@@ -5,7 +5,6 @@
 	var warning_shown = false;
 	var search_for = 'kitten';
 	var flickr_search_term = "kitten,cute"
-	
 	var valid_licenses="4,5,7";
 	
 	/*
@@ -214,3 +213,25 @@
 		set_title();
 		restore_text();
 	}
+
+var ajaxObject = $.ajax({
+	method: "POST",
+	url: "processor.php",
+    data: { action: "loadHeader"}
+})
+/*
+.fail(function() {
+	//backend might not be turned on. This might still be a client-side only app.
+})
+.done(function() {
+	//backend is turned on and we can do saves
+})
+.always(function() {
+
+});
+
+// Set another completion function for the request above
+ajaxObject.always(function() {
+  alert( "second complete" );
+});
+*/

@@ -17,7 +17,11 @@ function checkForDatabase()
 @return string
 */
 function fillOutHeader()
-{}
+{
+    if (checkForDatabase()) {
+
+    }
+}
 
 /* 
 @description save the work
@@ -41,4 +45,19 @@ function logout($user)
 @return MySQLi connection object
 */
 function connectToDB()
+{}
+
+function createToken()
+{}
+
+function checkPasswordForLogin()
+{}
+
+function createUser()
+{}
+
+function checkUsernameForExisting()
+{}
+
+function checkEmailForExisting()
 {}
