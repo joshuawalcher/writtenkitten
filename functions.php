@@ -1,5 +1,5 @@
 <?php
-
+require_once('config.php');
 /* 
 @description checks for existence of database. Called by fillOutHeader and Save
 @return boolean
@@ -7,19 +7,35 @@
 function checkForDatabase()
 {
     //check config
-    //check database connection
-    //close connection
-    //return true
+    if(isset($dbUser) && $dbUser != '' && isset($dbPass) && $dbPass != '') {
+        $conn = connectToDB();
+        return true;
+    }
+    return false;
 }
 
 /* 
 @description returns the things to put in the header, which may be nothing
 @return string
 */
-function fillOutHeader()
+function fillOutHeader($storage)
 {
     if (checkForDatabase()) {
-
+        if(isLoggedIn($storage)) {
+            $username = getUsername($storage);
+            return '
+            Logged in as ' . $username . '
+            <ul id="menu">
+                <li><a href="">Log Out</a></li>
+                <li><a href="">Manage User</a></li>
+            </ul>';
+        } else {
+            return '
+            <ul id="menu">
+                <li><a href="">Sign In</a></li>
+                <li><a href="">Register</a></li>
+            </ul>';
+        }
     }
 }
 
@@ -45,19 +61,37 @@ function logout($user)
 @return MySQLi connection object
 */
 function connectToDB()
-{}
+{
+    $namea = $dbName;
+	$usera = $dbUser;
+	$passworda = $dbPass;
+	$conn = mysqli_connect($dbHost,$usera,$passworda,$namea) or die(mysqli_error());
+	return $conn;
+}
 
 function createToken()
 {}
 
-function checkPasswordForLogin()
+function checkPasswordForLogin($password)
 {}
 
-function createUser()
+function createUser($data)
 {}
 
-function checkUsernameForExisting()
+function checkForExistingSession($userId)
 {}
 
-function checkEmailForExisting()
+function createSession($userId)
+{}
+
+function checkUsernameForExisting($username)
+{}
+
+function checkEmailForExisting($email)
+{}
+
+function isLoggedIn($storage)
+{}
+
+function getUsername($storage)
 {}
