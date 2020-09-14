@@ -121,11 +121,10 @@ function createToken()
     return bin2hex(openssl_random_pseudo_bytes(16));
 }
 
-function checkPasswordForLogin($password)
-{}
-
 function createUser($data)
-{}
+{
+
+}
 
 function checkForExistingSession($token)
 {
@@ -158,14 +157,40 @@ function checkForExistingSession($token)
     return false;
 }
 
-function createSession($userId)
-{}
-
 function checkUsernameForExisting($username)
-{}
+{
+    $token = cleanString($username);
+    $sql = "SELECT username from user
+    WHERE username = '$username'";
+    $conn = connectToDB();
+    $pull = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($pull,MYSQLI_ASSOC);
+    if(isset($row['username'])){
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function checkEmailForExisting($email)
-{}
+{
+    $token = cleanString($username);
+    if(str_replace(' ','',$email) != '') {
+        $sql = "SELECT email from user
+        WHERE email = '$email'";
+        $conn = connectToDB();
+        $pull = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_array($pull,MYSQLI_ASSOC);
+        if(isset($row['username'])){
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        //someone sent in a blank email or just spaces
+        return false;
+    }
+}
 
 function getEmailFromToken($token)
 {
@@ -202,7 +227,6 @@ function getUserFromToken($token)
         return false;
     }
 }
-
 
 /**
 ** returns array
