@@ -1,4 +1,9 @@
 <?php
+/*
+ * Remaining to-dos:
+ * 1) Registration function (createUser)
+ * 2) New MySQL Tables for user_sessions and password_reset_sessions
+ */
 require_once('config.php');
 /* 
 @description checks for existence of database. Called by fillOutHeader and Save
