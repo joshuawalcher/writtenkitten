@@ -45,7 +45,7 @@ $.getJSON(license_url, function(data) {
 			} else {
 			licdata["shortname"] = licdata.name;
 			}
-
+			
 			license_list[el.id] = licdata;
 		});
 	}
@@ -55,11 +55,11 @@ function word_count(text, wc) {
 	if (typeof localStorage != "undefined") {
 		localStorage.text = text;
 	}
-
+	
 	if (current_word_count >= 10 && warning_shown == false) {
 		show_warning();
 	}
-
+	
 	text = text.replace(/^\s*|\s*$/g,''); //removes whitespace from front and end
 	text = text.replace(/\s+/g,' '); // collapse multiple consecutive spaces
 	var words = text.split(" ");
@@ -68,7 +68,7 @@ function word_count(text, wc) {
 	$("#displayWords").html(wc.value);
 	kittens_earned = current_word_count / words_for_reward;
 	if (kittens_earned >= ((kittens_shown*1)+1)) {
-
+		
 		if(current_word_count > 90 && current_word_count < 110){
 			if($('#search').val() != search_for){
 				search_for = $('#search').val();
@@ -76,9 +76,9 @@ function word_count(text, wc) {
 			}
 			fetch_next_kitten();
 		}
-
+		
 		show_kitten();
-
+		
 	}
 }
 
@@ -125,14 +125,13 @@ function fetch_next_kitten() {
 			var photo = data.photos.photo[i];
 			console.log(photo);
 			if(photo.ownername) {
-				if(photo.ownername == "jus10h" || photo.ownername == "evaindia" || photo.ownername == "gailhampshire" || photo.ownername == 'gails_pictures' || photo.ownername.includes('rachel swallow') || photo.ownername == 'falconghost' || photo.ownername == 'sebilden'){
-					console.log('skipping banned owners');
+				if(photo.ownername == "jus10h" || photo.ownername == "evaindia" || photo.ownername == "gailhampshire" || photo.ownername == 'gails_pictures' || photo.ownername.includes('rachel swallow') || photo.ownername == 'falconghost' || photo.ownername == 'sebilden' || photo.title.includes('AI artwork')){
+					//console.log('skipping banned owners ' + photo.ownername);
 					fetch_next_kitten();
-				}else{
-					console.log(photo.ownername);
+					return false;
 				}
 			}
-
+			
 			var attrib = "";
 			if (license = license_list[photo.license]) {
 				if (license.url) {
@@ -145,7 +144,7 @@ function fetch_next_kitten() {
 			next_kitten.page_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
 			next_kitten.alt = photo.title + " by " + photo.ownername + attrib;
 			next_kitten.sharefb = 'https://www.facebook.com/sharer.php?u=' + next_kitten.page_url;
-		    next_kitten.sharetwitter = 'https://twitter.com/intent/tweet?url=' + next_kitten.page_url + '&text=Check out the cute ' + search_for + ' I found on writtenkitten.co!';
+			next_kitten.sharetwitter = 'https://twitter.com/intent/tweet?url=' + next_kitten.page_url + '&text=Check out the cute ' + search_for + ' I found on writtenkitten.co!';
 			$("#nextKitten").attr("src", next_kitten.img_url);
 		}
 	});
@@ -165,7 +164,7 @@ function set_search(searchTerm) {
 	} else {
 		search_for = searchTerm + ',cute';
 	}
-
+	
 	set_title();
 }
 
@@ -205,17 +204,17 @@ function tabs(e) {
 		// get caret position or selection
 		var start = el.selectionStart;
 		var end = el.selectionEnd;
-
+		
 		var value = el.value;
-
+		
 		// set text to: text before caret + tab + text after caret
 		el.valuse = value.substring(0, start
-				  + "\t"
-				  + value.substring(end));
-
+					+ "\t"
+					+ value.substring(end));
+		
 		// reset caret position
 		el.selectionStart = el.selectionEnd = start + 1;
-
+		
 		// keep focus
 		e.preventDefault();
 	}
