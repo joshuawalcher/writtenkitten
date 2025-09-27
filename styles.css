@@ -112,3 +112,10 @@
 	  margin-top: 407px;
 	  text-align: right;
 	}
+
+.show {
+  transition: opacity 400ms;
+}
+.hide {
+  opacity: 0;
+}

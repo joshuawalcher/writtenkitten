@@ -19,7 +19,6 @@
 <meta name="twitter:description" content="The Internet's best write-reward system! Write one hundred words, get an image of a kitten!"/>
 <meta itemprop="image" content="http://writtenkitten.co/images/logo.jpg"/>
 <link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css"/>
 
 <!--[if IE ]>
@@ -27,7 +26,6 @@
 		textarea { width:500px }
 	</style>
 <![endif]-->
-<script type="text/javascript" src="WrittenKitten.js"></script>
 </head>
 <body>
 <div id="main">
@@ -105,11 +103,19 @@
   </p>
   <img src="" id="nextKitten"/>
 </div> <!-- about -->
+  <script type="text/javascript" src="WrittenKitten.js"></script>
 <script language="javascript">
 	initPage();
-	$( document ).ready(function() {
-		fetch_next_kitten();
-	});
+  function ready(fn) 
+  {
+      if (document.readyState !== 'loading') {
+        fn();
+      } else {
+        document.addEventListener('DOMContentLoaded', fn);
+      }
+  }
+  ready(fetch_next_kitten)
+
 </script>
 <!--[if lt IE 7 ]>
   <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
