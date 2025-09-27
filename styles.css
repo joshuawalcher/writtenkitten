@@ -48,6 +48,7 @@
 	  overflow: auto;
 	  vertical-align: top;
 	  resize: vertical;
+    font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', sans-serif;
 	}
 	h1 {
 	  font-size: 3em;
