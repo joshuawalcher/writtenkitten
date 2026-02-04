@@ -142,7 +142,7 @@ function fetch_next_kitten() {
 			}
 			next_kitten.img_url = "http://farm" + photo.farm + ".static.flickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_z.jpg";
 			next_kitten.page_url = "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id;
-			next_kitten.alt = photo.title + " by " + photo.ownername + attrib;
+			next_kitten.alt = photo.title + " by " + photo.owner + attrib;
 			next_kitten.sharefb = 'https://www.facebook.com/sharer.php?u=' + next_kitten.page_url;
 			next_kitten.sharetwitter = 'https://twitter.com/intent/tweet?url=' + next_kitten.page_url + '&text=Check out the cute ' + search_for + ' I found on writtenkitten.co!';
 			$("#nextKitten").attr("src", next_kitten.img_url);
