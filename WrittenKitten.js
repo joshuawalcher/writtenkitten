@@ -124,9 +124,9 @@ function fetch_next_kitten() {
 			var i = Math.ceil(Math.random() * data.photos.photo.length);
 			var photo = data.photos.photo[i];
 			console.log(photo);
-			if(photo.ownername) {
-				if(photo.ownername == "jus10h" || photo.ownername == "evaindia" || photo.ownername == "gailhampshire" || photo.ownername == 'gails_pictures' || photo.ownername.includes('rachel swallow') || photo.ownername == 'falconghost' || photo.ownername == 'sebilden' || photo.title.includes('AI artwork')){
-					//console.log('skipping banned owners ' + photo.ownername);
+			if(photo.owner) {
+				if(photo.owner == "jus10h" || photo.owner == "evaindia" || photo.owner == "gailhampshire" || photo.owner == 'gails_pictures' || photo.owner.includes('rachel swallow') || photo.owner == 'falconghost' || photo.owner == 'sebilden' || photo.title.includes('AI artwork')){
+					//console.log('skipping banned owners ' + photo.owner);
 					fetch_next_kitten();
 					return false;
 				}
