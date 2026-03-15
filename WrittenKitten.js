@@ -4,7 +4,6 @@ var kittens_earned = 0;
 var kittens_shown = 0;
 var warning_shown = false;
 var search_for = 'kitten';
-var flickr_search_term = "kitten,cute"
 
 var valid_licenses="4,5,7";
 
@@ -72,7 +71,6 @@ function word_count(text, wc) {
 		if(current_word_count > 90 && current_word_count < 110){
 			if($('#search').val() != search_for){
 				search_for = $('#search').val();
-				flickr_search_term = $('#search').val(); + ',cute';
 			}
 			fetch_next_kitten();
 		}
@@ -106,15 +104,15 @@ function show_kitten() {
 }
 
 function fetch_next_kitten() {
+	let flickr_search_term
 	if (getParameterByName("search")) {
 		// if they are using a URL param, take them very literally. They
 		// generally know what they're doing.
-		search_for = getParameterByName("search");
-		flickr_search_term = search_for + ',cute';
+		flickr_search_term = getParameterByName("search");
 	} else {
 		// add "cute" to search if item is selected from dropdown. it just
 		// works better that way.
-		flickr_search_term = search_for;
+		flickr_search_term = search_for + ',cute';
 	}
 
 	var flickr_url = "https://api.flickr.com/services/rest/?api_key=0fa41c7f9709b1d850756011e09bbef6&format=json&sort=interestingness-desc&method=flickr.photos.search&license=" + valid_licenses + "&extras=owner_name,license&tags=" + flickr_search_term + "&tag_mode=all&jsoncallback=?";
@@ -160,18 +158,17 @@ function set_search(searchTerm) {
 	if (tmp = getParameterByName("search")) {
 		tmp.replace(/</g, "&lt;").replace(/>/g, "&gt;"); // sanitize
 		search_for = tmp;
-		flickr_search_term = tmp + ',cute';
 	} else {
-		search_for = searchTerm + ',cute';
+		search_for = searchTerm
 	}
 	
 	set_title();
 }
 
 function set_title() {
-	if (search_for != "kitten,cute") {
+	if (search_for != "kitten") {
 		$("#titleKitten").html("<strike>Kitten!</strike>");
-		$("#titleSearch").html("&nbsp;" + search_for.replace(',cute','') + "!");
+		$("#titleSearch").html("&nbsp;" + search_for + "!");
 	}
 	else {
 		$("#titleKitten").html("Kitten!");
